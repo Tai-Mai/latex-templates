@@ -1,0 +1,92 @@
+\documentclass[12pt]{report} 
+\usepackage[a4paper, portrait]{geometry}
+% pages for printing
+% \documentclass[twoside, openright, 12pt]{report} 
+% \let\tmp\oddsidemargin 
+% \let\oddsidemargin\evensidemargin
+% \let\evensidemargin\tmp
+% \reversemarginpar
+% pages for printing
+
+
+\usepackage[ngerman,english]{babel}
+\usepackage{lmodern}
+% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage[utf8]{inputenc}
+% \input kvmacros
+\usepackage[toc]{appendix}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[autostyle, english=american]{csquotes}
+\MakeOuterQuote{"}
+\usepackage{multirow}
+% \usepackage{textcomp} %ignore error message Package gensymb: Not defining \perthousand and \micro
+% \usepackage{gensymb}
+
+
+\usepackage[hypcap=false, font=small, labelfont=bf]{caption}
+\usepackage{subcaption}
+% \PassOptionsToPackage{hyphens}{url}
+\usepackage[pdfpagelabels]{hyperref}   %clickable table of contents
+% \usepackage[backend=biber, style=numeric, citestyle=numeric]{biblatex}
+% \addbibresource{main.bib}
+\usepackage[round]{natbib}
+\bibliographystyle{plainnat}
+
+\usepackage{booktabs} % tables
+\usepackage{multirow} % tables
+\usepackage[table]{xcolor} % tables
+
+\usepackage{arydshln} % array dashed line
+
+\usepackage{lipsum}
+\usepackage{setspace}
+% \setstretch{1.25}
+\onehalfspacing
+\usepackage{tocloft}    % tighter toc
+\setlength\cftparskip{.5pt} % tighter toc
+\setlength\cftbeforechapskip{.5pt} % tighter toc
+
+\usepackage{bbm}    % number 1 with double beam
+
+% \DeclareAutoCiteCommand{footnote}{\footcite}{\footcites}
+% \DeclareBibliographyDriver{footcite:online}{%
+%   \usedriver
+%     {\renewbibmacro*{bbx:savehash}{}}
+%     {online}}
+\setlength{\parskip}{1em}
+\hypersetup{colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\setcounter{secnumdepth}{5}
+\urlstyle{tt}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[EL]{\textsc{\nouppercase\leftmark}}
+\fancyhead[OR]{\textsc{\nouppercase\rightmark}}
+\fancyfoot[C]{\thepage}
+
+\newenvironment{abstractpage}
+    {\cleardoublepage\vspace*{\fill}}
+  {\vfill\cleardoublepage}
+\renewenvironment{abstract}[1]
+  {\bigskip\selectlanguage{#1}%
+   \begin{center}\bfseries\abstractname\end{center}}
+  {\par\bigskip}
+
+
+\newcommand{\lmem}{\textsc{Lmem}}
+\newcommand{\lmems}{\textsc{Lmem}s} 
+
+\DeclareMathOperator*{\argmax}{argmax} % thin space, limits underneath in display
+
+
+
+
+
+

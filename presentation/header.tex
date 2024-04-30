@@ -1,0 +1,103 @@
+\documentclass[aspectratio=169, xcolor={dvipsnames,svgnames,table}]{beamer}
+% \usepackage[backend=biber, style=acl, citestyle=acl]{biblatex} % biblatex
+% \addbibresource{slides.bib}       % biblatex
+% \AtBeginBibliography{\footnotesize} % biblatex
+% \renewcommand*{\bibfont}{\footnotesize}
+\usepackage[round]{natbib}         % Might have to run `biber slides` first
+\bibliographystyle{unsrtnat} 
+\usepackage{graphicx}
+\usepackage{multimedia}
+\usepackage[autostyle, english=american]{csquotes}
+\MakeOuterQuote{"}
+\usepackage{bookmark}   % PDF bookmarks
+\usepackage{booktabs}   % more beautiful tables
+\usepackage{tabularx}   % 
+\usepackage{multirow}   % for multiline tabular cell
+\usepackage{url}
+\usepackage{hyperref}   % clickable PDF links
+\usepackage[hypcap=false, font=small, labelfont=bf]{caption} % for subfigures
+\usepackage{subcaption} % for subfigures
+\usepackage{xstring} % for custom command with switch case
+% \hypersetup{colorlinks,linkcolor={blue},citecolor={lightgray},urlcolor={red}}  
+\usepackage{pifont} % for checkmark, crossmark
+\usepackage{fontspec}   % for emoji as black text characters. Usage: {\fontspec{Symbola} 🪙}
+\usepackage{emoji}  % https://unicode.org/emoji/charts/emoji-list.html, replace space with `-`
+\usepackage{tcolorbox}
+\usepackage[english]{babel}
+\usetheme[block=fill, sectionpage=none, progressbar=frametitle]{metropolis}
+\definecolor{mybackground}{RGB}{255,255,255} % White background
+\setbeamercolor{background canvas}{bg=mybackground}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{section in toc}[circle]
+\setbeamertemplate{subsection in toc}[square]
+\setbeamertemplate{itemize item}{$\bullet$}
+\setbeamertemplate{itemize subitem}{$\circ$}
+\setbeamertemplate{itemize subsubitem}{\scalebox{0.6}{$\blacksquare$}}
+\setbeamertemplate{itemize subsubsubitem}{\scalebox{0.6}{$\square$}}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+% \makeatletter
+% \pgfdeclareverticalshading[lower.bg,upper.bg]{bmb@transition}{200cm}{%
+%   color(0pt)=(upper.bg); color(2pt)=(upper.bg); color(4pt)=(upper.bg)}
+% \makeatother
+\makeatletter
+\setlength{\metropolis@titleseparator@linewidth}{1.5pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{1.5pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{1.5pt}
+\makeatother
+
+% Text colors
+\newcommand{\orange}[1]{\textcolor{orange}{#1}}
+\newcommand{\teal}[1]{\textcolor{teal}{#1}}
+\newcommand{\green}[1]{\textcolor{Green}{#1}}
+\newcommand{\red}[1]{\textcolor{BrickRed}{#1}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+
+% Text highlighting
+\newcommand{\hiorange}[1]{\colorbox{orange}{#1}}
+\newcommand{\hiteal}[1]{\colorbox{teal!60}{#1}}
+\newcommand{\higreen}[1]{\colorbox{Green!60}{#1}}
+\newcommand{\hired}[1]{\colorbox{red!50}{#1}}
+\newcommand{\higray}[1]{\colorbox{gray!50}{#1}}
+
+% Text sizes
+\newcommand*{\size}[2]{     % Relative font sizes
+    \IfEqCase{#1}{          % Needs package xstrings
+        {-4}{{{\tiny #2}}}     % Usage: `\size{-2}{text here}` or `\size{-2}{} text`
+        {-3}{{{\scriptsize #2}}}
+        {-2}{{{\footnotesize #2}}}
+        {-1}{{{\small #2}}}
+        {0}{{{\normalsize #2}}}
+        {+1}{{{\large #2}}}
+        {+2}{{{\Large #2}}}
+        {+3}{{{\LARGE #2}}}
+        {+4}{{{\huge #2}}}
+        {+5}{{{\Huge #2}}}
+    }[\PackageError{tree}{Undefined option to tree: #1}{}]%
+}
+
+% Symbols
+% Emoji
+\newcommand{\emojiastext}[1]{{\fontspec{Symbola} #1}}
+\newcommand{\xm}{\textcolor{red}{\ding{55}}}
+\newcommand{\cm}{\textcolor{green}{\ding{51}}}
+% Items
+\newcommand{\xitem}{\item[\xm]}  % checkmark, needs pifont
+\newcommand{\citem}{\item[\cm]}    % crossmark, needs pifont
+\newcommand*{\footcite}[1]{\footnote{\cite{#1}}}
+
+% Lines
+\newcommand*{\colorline}[1]{\begin{tikzpicture}\draw[#1] (0,0) -- (\textwidth,0);\end{tikzpicture}}
+
+% Emoji
+\newcommand{\emojiastext}[1]{{\fontspec{Symbola} #1}}
+
+% Buttons
+% Link to webpage. Usage: \linkweb{url}{button text}
+\newcommand{\buttonlink}[2]{\href{#1}{\beamerbutton{\emojiastext{🔗} #2}}}
+% Slide buttons
+% Usage: \buttonback{slide label}{button text}
+\newcommand{\buttonback}[2]{\hyperlink{#1}{\beamerreturnbutton{#2}}}
+\newcommand{\buttonforward}[2]{\hyperlink{#1}{\beamergotobutton{#2}}}
+\newcommand{\buttonskip}[2]{\hyperlink{#1}{\beamerskipbutton{#2}}}

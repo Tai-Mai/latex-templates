@@ -1,0 +1,166 @@
+\input{header.tex}
+
+%\setbeameroption{hide notes} % Only slides
+%\setbeameroption{show only notes} % Only notes
+\setbeameroption{show notes on second screen=right} % Both
+
+\title{Title}
+\subtitle{Subtitle}
+\author{First-name Last-name} 
+
+
+\begin{document}
+\maketitle
+
+\AtBeginSection[]
+{
+    \begin{frame}
+    \label{overview}
+    \frametitle{Overview}
+    {
+        % \footnotesize
+        \tableofcontents[currentsection]
+    }
+    \end{frame}
+}
+
+\section{First section}
+\label{sec:sec1}
+
+\begin{frame}[fragile]       % Frame 1 title
+\frametitle{Vanilla \LaTeX / beamer stuff}
+\note{Enabling/disabling notes:}
+\note[item]{Show only slides: \texttt{\textbackslash setbeameroption\{hide notes\}}}
+\note[item]{Show only notes: \texttt{\textbackslash setbeameroption\{show only notes\}}}
+\note[item]{Show both (for use with e.g.~\href{https://github.com/Cimbali/pympress}{Pympress} during actual presentations) \texttt{\textbackslash setbeameroption\{show notes on second screen=right\}}}
+
+\begin{itemize}
+    \item \emph{\textbackslash emph\{\}}, \alert{\textbackslash alert\{\}}
+    \item Citation: \citet{touvron2023llama}, \citep{touvron2023llama}, \footcite{touvron2023llama}
+    \item Verbatim text
+        \begin{itemize}
+            \item Needs \texttt{\textbackslash begin\{frame\}[fragile]}
+            \item Inline: \texttt{\textbackslash verb$\vert$text$\vert$} (less
+            escaping than \verb|\texttt{}|)
+            \item Block text: \texttt{\textbackslash begin\{verbatim\}}
+        \end{itemize}
+    \item Emoji
+        \begin{itemize}
+            \item \texttt{\textbackslash usepackage\{fontspec\}} (already in
+                \texttt{header.tex})\\
+            \texttt{\textbackslash usepackage\{emoji\}}(already in
+                \texttt{header.tex})\\
+            \texttt{\textbackslash emoji\{hugging-face\}} $\Rightarrow$ \emoji{hugging-face}
+        \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Vanilla \LaTeX / beamer stuff}
+\begin{columns}
+    \begin{column}{0.3\textwidth}
+        \begin{block}{\texttt{block} title}
+            Block text
+        \end{block}
+    \end{column}
+
+    \begin{column}{0.3\textwidth}
+        \begin{alertblock}{\texttt{alertblock} title}
+            Block text
+        \end{alertblock}
+    \end{column}
+
+    \begin{column}{0.3\textwidth}
+        \begin{exampleblock}{\texttt{exampleblock} title}
+            Block text
+        \end{exampleblock}
+    \end{column}
+\end{columns}
+
+\begin{columns}
+    \begin{column}{0.5\textwidth}
+        \begin{tcolorbox}[colframe=orange]
+        \size{-3}{
+        \texttt{\textbackslash usepackage\{tcolorbox\}}
+        \texttt{\textbackslash begin\{tcolorbox\}[colframe=orange]}}
+        \end{tcolorbox}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+        \begin{tcolorbox}[colframe=teal]
+        \size{-3}{
+        \texttt{\textbackslash usepackage\{tcolorbox\}}
+        \texttt{\textbackslash begin\{tcolorbox\}[colframe=teal]}}
+        \end{tcolorbox}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Custom stuff in \texttt{header.tex}}
+\label{custom}
+\begin{itemize}
+\item \size{+5}{Text} \size{-4}{sizes}: \verb|\size{|$i$\verb|}{text}|,\quad
+    $i\in [-4, +5]$, $i=0$ is normal size
+    \item \teal{Text} \orange{colors}: \verb|\orange{}, \teal{}, \green{}, \red{}, \gray{}|
+    \item \hiteal{Text} \hiorange{highlighting}: \verb|\hiteal{}, \hiorange{}, \higreen{}, \hired{}, \higray{}|
+    \xitem \verb|\xitem|
+    \citem \texttt{\textbackslash citem}
+    \item Buttons
+        \begin{itemize}
+            \item Normal:
+                \buttonlink{https://www.overleaf.com/latex/templates/metropolis-beamer-theme/qzyvdhrntfmr}{Official theme demo}
+            \item Slide buttons: 
+                \buttonback{overview}{Overview}
+                \buttonforward{custom}{Custom}
+                \buttonskip{references}{References}
+        \end{itemize}
+    \item \texttt{\textbackslash colorline\{<color>\}}:
+\end{itemize}
+    \colorline{orange}
+    \colorline{teal}
+\end{frame}
+
+% section First section (end)
+
+\section{Second section} % (fold)
+\label{sec:sec2}
+
+\begin{frame}       % Frame 2 title
+\frametitle{Present and notes}
+\begin{itemize}
+    \item Open PDF with \href{https://github.com/Cimbali/pympress}{Pympress} 
+    \item Write notes with 
+        \begin{itemize}
+            \item \texttt{\textbackslash{}note\{This is a note\}}
+                \note{This is a note}
+            \item \texttt{\textbackslash{}note[item]\{This is an enumerated note\}}
+                \note[item]{This is an enumerated note}
+        \end{itemize}
+\end{itemize}
+\end{frame}
+
+% section Second section (end)
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[standout]
+\frametitle{Thanks for your attention}
+--- \quad Questions / Discussion \quad ---
+\end{frame}
+
+\begin{frame}%[allowframebreaks]    % uncomment if references longer than 1 frame
+\frametitle{References}
+\label{references}
+% \printbibliography        % biblatex
+\size{-3}{
+\bibliography{references}       % natbib
+}
+\end{frame}
+
+\section*{Appendix}
+\begin{frame}       % Appendix
+\frametitle{Appendix}
+\begin{itemize}
+    \item Appendix item
+\end{itemize}
+\end{frame}
+\end{document}

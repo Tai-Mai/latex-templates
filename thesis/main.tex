@@ -1,0 +1,100 @@
+\input{header.tex}
+\usepackage{lipsum}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\Large\textbf{Institute of Computational Linguistics\\
+University of Heidelberg}
+
+\vspace{13.5cm}
+
+\normalsize
+Master Thesis in Computational Linguistics\\
+submitted by\\
+\vspace{0.5cm}
+\Large\textbf{Anh-Tai Mai}\\
+\normalsize
+\vspace{0.5cm}
+born in City, Germany\\
+\vspace{0.5cm}
+\Large\textbf{2024}
+\normalsize
+
+\end{center}
+\end{titlepage}
+\pagenumbering{gobble}
+\clearpage\mbox{}\clearpage
+\begin{titlepage}
+\begin{center}
+
+\pagenumbering{gobble} 
+
+\Large\textbf{Title}
+
+\vfill
+
+\normalsize
+This Master Thesis has been carried out by\\
+Anh-Tai Mai\\ 
+at the\\
+Institute of Computational Linguistics, University of Heidelberg\\
+under the supervision of\\
+Prof.~Dr.~First-name Last-name\\
+
+\end{center}
+\end{titlepage}
+
+\begin{abstractpage}
+\pagenumbering{roman}
+\begin{abstract}{english}
+  \lipsum[1]
+\end{abstract}
+
+\begin{abstract}{ngerman}
+  \lipsum[2]
+\end{abstract}
+\end{abstractpage}
+\setstretch{1}
+\tableofcontents
+\onehalfspacing
+\newpage
+\pagenumbering{gobble}
+\clearpage\mbox{}\clearpage
+\pagestyle{fancy}
+\pagenumbering{arabic}
+
+\input{chapters/chapter1}
+
+
+% \printbibliography\\ % bibtex 
+\bibliography{references} % natbib
+
+% \newpage
+% \pagestyle{plain}
+% \input{chapters/appendix}
+%
+%
+% \onehalfspacing
+%
+%
+%
+%
+% \chapter*{Erkl\"{a}rung}
+%
+% Ich versichere, dass ich diese Arbeit selbstst\"{a}ndig verfasst und keine 
+% anderen als die angegebenen Quellen und Hilfsmittel benutzt habe.
+%
+% \vspace{3cm}
+%
+% \noindent Heidelberg, 23.~November 2022
+%
+% \begin{figure}[h!]
+%     \includegraphics[width=0.15\textwidth]{figures/signature.png}
+% \end{figure}
+%
+% \noindent Anh-Tai Mai
+%
+
+\end{document}
